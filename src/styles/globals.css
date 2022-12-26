@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Waterfall&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {

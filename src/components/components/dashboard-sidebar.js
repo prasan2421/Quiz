@@ -24,9 +24,9 @@ const items = [
     title: 'Dashboard'
   },
   {
-    href: '/admin/blog',
+    href: '/admin/flag',
     icon: (<UserAddIcon fontSize="small" />),
-    title: 'Blog'
+    title: 'Flags'
   },
   {
     href: '/admin/customers',

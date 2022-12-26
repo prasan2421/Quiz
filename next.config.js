@@ -7,7 +7,8 @@ module.exports = {
   env: {
     // HOST:'http://13.50.130.172:80/api'
     // ,
-    HOST:'http://localhost:3000/api',
+    // HOST:'http://localhost:3000/api',
+    HOST:'http://192.168.1.233:3000/api',
    
     // NODE_ENV : 'production'
 
@@ -36,10 +37,9 @@ module.exports = {
     unoptimized: true
 },
 
-experimental:{scrollRestoration: true, appDir: true},
-
-
-
+experimental:{
+  scrollRestoration: true,
+   appDir: true},
     output: 'standalone',
     swcMinify: true,
 }

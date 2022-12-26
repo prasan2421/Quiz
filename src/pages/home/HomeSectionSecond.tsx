@@ -164,12 +164,10 @@ export default function HomeSectionSecond({posts}) {
   
   
   const objectData=[
-      {'id':'1','img':'images/1.png','title':'Guess the Country Flag','subtitle':'Test your knowledge','color':'red'},
-      {'id':'2','img':'images/foodbusters.png','title':'Guess the Country','subtitle':'Test your knowledge','color':'green'},
-      {'id':'3','img':'images/covid.png','title':'Guess the Animal','subtitle':'Test your knowledge','color':'#81D8F7'},
-      {'id':'4','img':'images/patanjalisfa.png','title':'Guess the Plant','subtitle':'Test your knowledge','color':'yellow'},
-      {'id':'5','img':'images/pbri.png','title':'Guess the Country Flag','subtitle':'Test your knowledge','color':'cyan'},
-      {'id':'9','img':'images/doe.png','title':'Guess the Country Flag','subtitle':'Test your knowledge','color':'purple'},
+      {'id':'1','img':'images/flags.png','title':'Guess the Country Flag','subtitle':'Test your knowledge','color':'red','active':true},
+      {'id':'2','img':'images/countries.gif','title':'Guess the Country','subtitle':'Test your knowledge','color':'green','active':false},
+      {'id':'3','img':'images/animals.jpeg','title':'Guess the Animal','subtitle':'Test your knowledge','color':'#81D8F7','active':false},
+      {'id':'4','img':'images/plants.jpeg','title':'Guess the Plant','subtitle':'Test your knowledge','color':'yellow','active':false},
     ]
     
   //     useEffect(()=>{
@@ -192,11 +190,11 @@ export default function HomeSectionSecond({posts}) {
       {(objectData?objectData:[]).map((data, index) => (
         <Grid xs={12} sm={12} md={12} key={index}>
         <Card sx={{margin:'7px', borderTop:`2px solid  ${data.color}`,}}>
-        <CardActionArea sx={{ display: 'flex' }} onClick={() => {
+        <CardActionArea  sx={{ display: 'flex' }} onClick={() => { data.active?
           router.push({
             pathname: `/${data.title}`,
             // query: data,
-          })}}>
+          }):alert('Coming Soon!')}}>
           <CardContent sx={{flex:1, textAlign:'center'}}>
             <Typography component="div" variant="h5">
              {data.title}
@@ -205,23 +203,12 @@ export default function HomeSectionSecond({posts}) {
             {data.subtitle}
             </Typography>
           </CardContent>
-          {/* <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-            <IconButton aria-label="previous">
-              {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-            </IconButton>
-            <IconButton aria-label="play/pause">
-              <PlayArrowIcon sx={{ height: 38, width: 38 }} />
-            </IconButton>
-            <IconButton aria-label="next">
-              {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-            </IconButton>
-          </Box> */}
-       
+         
         <CardMedia
           component="img"
           sx={{ width: '100%', height:100,flex:1 }}
           image={data.img}
-          alt="Live from space album cover"
+          alt={data.title}
         />
         </CardActionArea>
       </Card>

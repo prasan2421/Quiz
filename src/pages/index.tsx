@@ -12,7 +12,6 @@ import Link from 'next/link'
 import Date from '../components/date'
 import Script from 'next/script'
 
-
 import { GetStaticProps } from 'next'
 import Layout, { siteTitle } from '../components/layout'
 
@@ -45,6 +44,7 @@ export default function Home({
 
   const theme = useTheme();
 
+ 
   // useEffect(()=>{
       
   //   // getStaticProps()
@@ -52,8 +52,10 @@ export default function Home({
   // })
 
   
+
   return (
-   
+  
+
     <ThemeProvider theme={theme} >
     
       <Head>
@@ -90,15 +92,15 @@ export default function Home({
         <HomeSectionFirst/>
         
         <HomeSectionSecond posts={posts}/>
-        <HomeSectionThird/>
+        {/* <HomeSectionThird/>
         <HomeSectionFourth/>
-        <HomeSectionFifth/>
+        <HomeSectionFifth/> */}
 
         
       
     
     </ThemeProvider>
-    
+  
   )
 }
 

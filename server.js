@@ -7,6 +7,8 @@ const path= require('path')
 const cors = require("cors");
 const dotenv = require('dotenv')
 
+
+
 const connectDB = require('./server/database/connection')
 const { errorHandler } = require('./server/middleware/errorMiddleware');
 dotenv.config({path:'.env'})
@@ -25,11 +27,12 @@ app.prepare()
     server.use(cors());
     //log requests
     server.use(morgan('tiny'));
-    //mongodb connection
+  
    
-    server.use(bodyparser.json())
+
 //parse request to body-parser
 server.use(bodyparser.urlencoded({extended:true}))
+server.use(bodyparser.json())
 
 // load assets
 server.use('/css', express.static(path.resolve(__dirname,"assets/css"))) 
@@ -41,7 +44,7 @@ server.use('/js', express.static(path.resolve(__dirname,"assets/js")))
 // load routers
 server.use('/api/users',require('./server/routes/usersRoutes'))
 server.use('/api/contacts',require('./server/routes/contactsRoutes'))
-server.use('/api/blogs',require('./server/routes/blogRoutes'))
+server.use('/api/flags',require('./server/routes/flagsRoutes'))
 server.use('/api/admins',require('./server/routes/adminRoutes'))
 
 

@@ -55,7 +55,7 @@ const create = asyncHandler(async (req, res) => {
             // status: admin.status,
             gender: admin.gender,
             type: admin.type,
-            token: generateToken(user._id),
+            token: generateToken(admin._id),
         })
     }
     else {

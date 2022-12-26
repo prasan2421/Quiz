@@ -58,12 +58,12 @@ const BREAKPOINTS = { mobile: 0, tablet: 900, desktop: 1280 }
 
 const navData = [
   { 'title': 'Home', 'link': '/' },
-  { 'title': 'Blog', 'link': '/blog' },
-  { 'title': 'About', 'link': '/about' },
-  { 'title': 'My Skills', 'link': '/skill' },
-  { 'title': 'Work', 'link': '/work' },
-
-  { 'title': 'contact', 'link': '/contact' }]
+  // { 'title': 'Blog', 'link': '/blog' },
+  // { 'title': 'About', 'link': '/about' },
+  // { 'title': 'My Skills', 'link': '/skill' },
+  // { 'title': 'Work', 'link': '/work' },
+  // { 'title': 'contact', 'link': '/contact' }
+]
 
 const StyledList = styled(List)({
   // selected and (selected + hover) states
@@ -174,10 +174,10 @@ export default function Layout({ children, home }: {
 
     <StyledList>
       {navData.map((text, index) => (
-        <>
+        <Box key={index}>
           <Divider className={headerStyles.dividerColor} />
 
-          <ListItem key={index} disablePadding>
+          <ListItem  disablePadding>
 
             <Link href={`${text.link}`}
               passHref
@@ -190,14 +190,17 @@ export default function Layout({ children, home }: {
                     {drawerList(text)}
                   </Button>
                 ) : (
-                  drawerList(text)
+                  // drawerList(text)
+                  <Button variant="text" onClick={() => { setSwipabledrawer(false) }} style={{ width: '100%', textAlign: 'center' }}>
+                  {drawerList(text)}
+                </Button>
 
                 )
 
               }
             </Link>
           </ListItem>
-        </>
+        </Box>
       ))}
       <Divider className={headerStyles.dividerColor} />
     </StyledList>
@@ -351,7 +354,7 @@ export default function Layout({ children, home }: {
 
             {drawerHeader}
             {drawerContent}
-            {drawerContentSocial}
+            {/* {drawerContentSocial} */}
 
 
           </Box>
@@ -370,10 +373,10 @@ export default function Layout({ children, home }: {
             onOpen={toggleDrawer(true)}
 
           >
-            <Box sx={{ height: '100vh', justifyContent: 'space-between', display: 'flex', flexDirection: 'column' }}>
+            <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
               {drawerHeader}
               {drawerContent}
-              {drawerContentSocial}
+              {/* {drawerContentSocial} */}
             </Box>
 
           </SwipeableDrawer>
